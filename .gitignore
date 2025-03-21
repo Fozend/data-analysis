@@ -1,4 +1,18 @@
-*.csv
-*.xlsx
-*.json
-__pycache__/
+# Data files  
+*.csv  
+*.json  
+*.xlsx  
+
+# Downloaded VHI data  
+VHI_data/   
+
+# Logs & temporary files  
+*.log  
+*.tmp  
+
+# Python cache  
+__pycache__/  
+*.pyc  
+
+# Jupyter Notebook  
+.ipynb_checkpoints/  
