@@ -41,3 +41,11 @@ To run it, , run the following command:
 streamlit run lab3/lab3.py
 ```
 
+vers1 - initial project with labs 2 and 3
+
+vers1.1 - revised project with labs 2 and 3
+
+Change log:
+fixed and improved filter reset in lab 3
+improved graph 3 in lab3
+minor fixes and improvements in the lab3.py code
