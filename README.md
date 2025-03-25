@@ -17,7 +17,7 @@ Shows extrema, mean, and median values from the table for the selected region an
 Analyzes the VHI for the selected range of years and regions
 Identifies years with the highest number of droughts that affected more than a certain percentage of regions
 
-To run it, open the lab2.ipynb file in Jupyter Notebook and run the cells
+##### To run it, open the lab2.ipynb file in Jupyter Notebook and run the cells
 
 Lab 3
 
@@ -49,3 +49,4 @@ Change log:
 fixed and improved filter reset in lab 3
 improved graph 3 in lab3
 minor fixes and improvements in the lab3.py code
+
