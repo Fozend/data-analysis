@@ -8,3 +8,5 @@ seaborn
 ucimlrepo
 scipy
 scikit-learn
+plotly
+bokeh

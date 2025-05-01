@@ -20,6 +20,12 @@ Identifies years with the highest number of droughts that affected more than a c
 
 ### To run it, open the lab2.ipynb file in Jupyter Notebook and run the cells
 
+### WARNING: don't forget to install requirements, run the following command:
+
+```bash
+pip install -r requirements.txt
+```
+
 Lab 3
 
 This lab contains a Python script that creates an interactive web app using Streamlit to analyze data from Lab 2.
@@ -36,7 +42,7 @@ Graphs:
 Sorting: Checkboxes to sort data ascending/descending (with warning if both are selected).
 Layout: Interactive elements in one column, data in another.
 
-To run it, , run the following command:
+### To run it, run the following command:
 
 ```bash
 streamlit run lab3/lab3.py
@@ -50,6 +56,12 @@ Change log:
 fixed and improved filter reset in lab 3
 improved graph 3 in lab3
 minor fixes and improvements in the lab3.py code
+
+### WARNING: don't forget to reinstall requirements, run the following command:
+
+```bash
+pip install -r requirements.txt
+```
 
 Lab 4
 
@@ -91,3 +103,88 @@ Perform One Hot Encoding on a categorical attribute.
 Visualize multi-dimensional data effectively.
 
 ### To run it, open the lab4.ipynb file in Jupyter Notebook and run the cells
+
+### WARNING: don't forget to reinstall requirements, run the following command:
+
+```bash
+pip install -r requirements.txt
+```
+
+Lab 5
+
+Contains three separate Python scripts that implement the creation of a harmonic signal with noise, filtering this signal, and building an interactive interface using modern visualization libraries
+
+Task 1
+
+Description:
+
+Matplotlib are used to create the GUI
+
+The function harmonic_with_noise generates a harmonic signal with added noise:
+
+Amplitude, Frequency, and Phase parameters define the harmonic
+
+Noise Mean and Noise Covariance are used to create Gaussian noise
+
+show_noise flag controls whether the noise is displayed on the plot
+
+The GUI contains:
+
+Sliders for adjusting amplitude, frequency, phase, and noise parameters (mean and covariance)
+
+A Checkbox to toggle the visibility of the noise
+
+A Reset Button to restore default parameters
+
+After adjusting the parameters, the plot is updated automatically
+
+If the noise parameters are changed, only the noise part of the signal is updated. The harmonic part stays as it was
+
+Details:
+
+The harmonic function is generated using the formula: y = A * sin(2πft + phase), where A is amplitude, f is frequency, t is time, and phase is the phase shift
+
+Noise is generated using np.random.normal, with the mean and covariance passed as parameters
+
+The CheckButtons widget allows toggling the visibility of the noise on the plot
+
+### To run it, run the following command:
+
+```bash
+python lab5/lab5_1.py
+```
+
+Task 2
+
+Description:
+
+The harmonic signal with noise is filtered using a Butterworth filter from the scipy.signal.butter and scipy.signal.filtfilt methods
+
+Parameters for the filter (fs and cutoff frequency) can be adjusted using sliders
+
+### To run it, run the following command:
+
+```bash
+python lab5/lab5_2.py
+```
+
+Task 3
+
+Description:
+
+This task implements the same functionality as Tasks 1 and 2 but using Bokeh, a modern web-based library for interactive plotting
+
+Instead of filters from the scipy library, added two custom Python filters (using NumPy) is applied to smooth the signal
+
+### To run it, run the following command:
+
+```bash
+bokeh serve --show lab5_3.py
+```
+
+### WARNING: don't forget to reinstall requirements, run the following command:
+
+```bash
+pip install -r requirements.txt
+```
+
