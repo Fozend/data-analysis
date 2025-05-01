@@ -179,7 +179,7 @@ Instead of filters from the scipy library, added two custom Python filters (usin
 ### To run it, run the following command:
 
 ```bash
-bokeh serve --show lab5_3.py
+bokeh serve --show lab5/lab5_3.py
 ```
 
 ### WARNING: don't forget to reinstall requirements, run the following command:
