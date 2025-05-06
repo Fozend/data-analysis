@@ -13,25 +13,30 @@ def harmonic_with_noise(amplitude, frequency, phase, noise, t):
     return harmonic(amplitude, frequency, phase, t) + noise
 
 def moving_average(signal, window_size):
-    filtered = np.zeros_like(signal)
-    for i in range(len(signal)):
-        start = max(0, i - window_size // 2)
-        end = min(len(signal), i + window_size // 2 + 1)
-        filtered[i] = np.mean(signal[start:end])
+    filtered = np.zeros_like(signal) # створюється масив нулів розміру масиву signal
+    for i in range(len(signal) - window_size + 1):
+        window_avg = np.sum(signal[i:i+window_size]) / window_size
+        filtered[i + window_size // 2] = window_avg
     return filtered
 
 def butter_lowpass_filter(signal, cutoff, fs, order=4):
     N = len(signal)
-    freqs = np.fft.fftfreq(N, d=1/fs)
-    F = np.fft.fft(signal)
-    H = np.zeros(N)
+    # FFT - швидке перетворення Фур'є
 
+    # обчислюємо частотну сітку для FFT
+    freqs = np.fft.fftfreq(N, d=1/fs) # d=1/fs: крок дискретизації за часом, вихідний freqs - масив частот від -fs/2 до fs/2
+
+    # перетворення Фур'є сигналу (переходить у частотну область)
+    F = np.fft.fft(signal) # F - комплексні коефіцієнти, що показують амплітуди та фази кожної гармоніки
+    H = np.zeros(N) # масив розміру N
+
+    # формула амплітудної характеристики фільтра Баттерворта H(f) = 1 / 1 + (f/fc)^(2*n)
     for i in range(N):
         D = abs(freqs[i])
         H[i] = 1 / (1 + (D / cutoff)**(2 * order))
 
-    G = F * H
-    filtered = np.fft.ifft(G)
+    G = F * H # Множимо спектр сигналу F на частотну характеристику H — це еквівалент фільтрації у частотній області
+    filtered = np.fft.ifft(G) # Зворотне FFT — повертає сигнал назад у часову область
     return np.real(filtered)
 
 def apply_filter(y_clean, y_noisy):

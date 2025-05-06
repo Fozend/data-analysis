@@ -100,13 +100,11 @@ button = Button(plt.axes([0.8, 0.03, 0.1, 0.04]), 'Скинути')
 button.on_clicked(reset)
 
 # Оновлення при взаємодії
-for slider in [s_amp, s_freq, s_phase]:
+for slider in [s_amp, s_freq, s_phase, s_cutoff, s_fs]:
     slider.on_changed(lambda val: update())
 s_nmean.on_changed(lambda val: update_noise())
 s_ncov.on_changed(lambda val: update_noise())
 cb_noise.on_clicked(lambda val: update())
-s_cutoff.on_changed(lambda val: update())
-s_fs.on_changed(lambda val: update())
 cb_filter.on_clicked(lambda val: update())
 
 plt.show()
