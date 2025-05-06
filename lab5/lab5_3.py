@@ -14,10 +14,12 @@ def harmonic_with_noise(amplitude, frequency, phase, noise, t):
 
 def moving_average(signal, window_size):
     filtered = np.zeros_like(signal) # створюється масив нулів розміру масиву signal
-    for i in range(len(signal) - window_size + 1):
-        window_avg = np.sum(signal[i:i+window_size]) / window_size
-        filtered[i + window_size // 2] = window_avg
+    for i in range(len(signal)):
+        start = max(0, i - window_size // 2)
+        end = min(len(signal), i + window_size // 2 + 1)
+        filtered[i] = np.mean(signal[start:end])
     return filtered
+
 
 def butter_lowpass_filter(signal, cutoff, fs, order=4):
     N = len(signal)
