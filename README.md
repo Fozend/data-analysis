@@ -187,4 +187,75 @@ bokeh serve --show lab5/lab5_3.py
 ```bash
 pip install -r requirements.txt
 ```
+Lab 6
 
+This lab consists of two tasks focusing on linear regression, working with noisy data, and implementing gradient descent from scratch
+
+Task 1
+
+Description:
+Generate linear data:
+y=kx+b
+Add normally distributed noise using np.random.normal() to simulate measurement errors
+
+Visualize:
+
+Initial line (true model)
+
+Noisy points
+
+Regression line obtained with:
+
+Least Squares Method
+
+numpy.polyfit
+
+Used Least Squares Method formulas:
+
+k = (∑(Xi − X^)(Yi − Y^) ) / ∑(Xi − X^)^2
+b = Y^ − β1X^
+
+Task 2: Gradient Descent for Linear Regression
+
+Manually minimize the MSE loss function to estimate line parameters using batch gradient descent
+
+Steps:
+
+1. Initialize b, k, set learning_rate and number of iterations.
+
+2. Compute predictions: yi^ = bi + ki*xi 
+
+3. Calculate partial derivatives
+∂L/∂b = −2 * 1/n * ∑(yi − yi^)
+∂L/∂k = −2 * 1/n * ∑xi(yi − yi^)
+
+4. Update parameters
+b i+1 = bi − learning_rate * (∂L/∂b)
+k i+1 = ki − learning_rate * (∂L/∂k)
+
+5. Repeat 2-4 steps predicted number of iterations
+
+Track and plot error vs. iterations
+
+Visualization:
+Add the result of gradient descent as a separate line.
+
+Plot MSE convergence graph (MSE calculated using formula: 1/n * ∑(yi − yi^)^2)
+
+Display final parameters for:
+
+True values
+
+LSM
+
+Polyfit
+
+Gradient Descent
+
+### To run it, open the lab6.ipynb file in Jupyter Notebook and run the cells
+
+### WARNING: don't forget to reinstall requirements, run the following command:
+
+```bash
+pip install -r requirements.txt
+```
